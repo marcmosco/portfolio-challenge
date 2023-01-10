@@ -1,0 +1,7 @@
+<div #mySidenav class="sidenav">
+  <a class="closebtn" (click)="closeNav()">&times;</a>
+  <a [routerLink]="'/home'">All</a>
+  <div *ngFor="let album of listAlbums">
+    <a (click)="onItemSelected(album)">{{ album.title }}</a>
+  </div>
+</div>

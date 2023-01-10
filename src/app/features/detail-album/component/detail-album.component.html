@@ -1,0 +1,12 @@
+<h1 style="padding-left: 30px; padding-top: 5px">
+  {{ albumModel?.title }}
+</h1>
+
+<div class="row">
+  <div class="column" *ngFor="let photo of listPhotos">
+    <app-photo-card
+      [photo]="photo"
+      [userId]="albumModel.userId"
+    ></app-photo-card>
+  </div>
+</div>

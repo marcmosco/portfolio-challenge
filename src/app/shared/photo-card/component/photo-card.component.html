@@ -1,0 +1,27 @@
+<div class="card">
+  <div class="img-gradient">
+    <img [src]="photo.thumbnailUrl" alt="Avatar" />
+    <div class="overlay"></div>
+    <div class="button">
+      <a (click)="openDialog(photo.id)">
+        Detail <fa-icon [icon]="faArrow"></fa-icon>
+      </a>
+    </div>
+  </div>
+
+  <div class="text-container">
+    <p>{{ photo.album.title }}</p>
+    <h4>
+      <b>{{ photo.title }}</b>
+    </h4>
+  </div>
+</div>
+
+<app-modal-detail-photo
+  *ngIf="showModal"
+  #modal
+  [photo]="photo"
+  [comments]="allComments"
+  [user]="user"
+  (closeEvent)="closeModal()"
+></app-modal-detail-photo>

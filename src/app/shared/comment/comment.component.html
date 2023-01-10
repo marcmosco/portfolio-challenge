@@ -1,0 +1,22 @@
+<div class="comment-image">
+  <img [src]="comment.user?.avatar" />
+</div>
+<div class="comment-body">
+  <div class="comment-info">
+    <strong>{{ comment.user?.name }}</strong>
+  </div>
+  <div class="comment-text">
+    <p
+      #ellipsisRef
+      ellipsis
+      (ellipsis-change)="truncated($event)"
+      [ngClass]="{ 'line-clamp': !showMore }"
+    >
+      {{ comment.body }}
+    </p>
+    <span class="more" *ngIf="!showMoreButton" (click)="showComplete()"
+      >Read more</span
+    >
+  </div>
+  <div class="date-field">{{ comment.creationDate }}</div>
+</div>
