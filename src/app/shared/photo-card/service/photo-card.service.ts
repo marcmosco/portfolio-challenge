@@ -27,14 +27,7 @@ export class PhotoCardService {
   getUserById(idUser: number): Observable<UserModel> {
     const url = `${environment.baseRestApi}/users/${idUser}`;
 
-    return this.httpClient.get<UserModel>(url).pipe(
-      map((res) => {
-        return res;
-      }),
-      catchError((err) => {
-        return throwError(err);
-      })
-    );
+    return this.httpClient.get<UserModel>(url);
   }
 
   //metodo custom per il sort

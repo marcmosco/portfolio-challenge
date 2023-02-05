@@ -13,13 +13,6 @@ export class MenuService {
   loadAllAlbums() {
     const url = `${environment.baseRestApi}/albums`;
 
-    return this.httpClient.get<AlbumModel[]>(url).pipe(
-      map((res) => {
-        return res;
-      }),
-      catchError((err) => {
-        return throwError(err);
-      })
-    );
+    return this.httpClient.get<AlbumModel[]>(url);
   }
 }

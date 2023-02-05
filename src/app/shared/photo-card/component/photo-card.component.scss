@@ -60,18 +60,19 @@ img {
   text-align: center;
   opacity: 0;
   transition: opacity .35s ease;
+
+  a {
+    width: 200px;
+    padding: 12px 48px;
+    text-align: center;
+    color: white;
+    border: solid 2px white;
+    z-index: 1;
+    border-radius: 15px;
+    cursor:pointer;
+  }
 }
 
-.button a {
-  width: 200px;
-  padding: 12px 48px;
-  text-align: center;
-  color: white;
-  border: solid 2px white;
-  z-index: 1;
-  border-radius: 15px;
-  cursor:pointer;
-}
 
 .img-gradient:hover .button {
   opacity: 1;

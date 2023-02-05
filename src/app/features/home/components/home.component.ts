@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PhotoModel } from '../../../shared/model/photo.model';
-import { HomeService } from '../services/home.service';
+import { HomeService } from '../service/home.service';
 
 @Component({
   selector: 'app-home',

@@ -1,12 +1,7 @@
-<!--
-<mat-toolbar color="primary">
-  <mat-toolbar-row>
-    <button mat-icon-button><mat-icon (click)="toggle()">menu</mat-icon></button>
-    <span style="padding-left: 10px"><strong>Port</strong>folio</span>
-  </mat-toolbar-row>
-</mat-toolbar>
--->
 <div class="topnav">
   <a (click)="toggle()"><fa-icon [icon]="faMenu"></fa-icon></a>
-  <span style="padding-left: 10px"><strong>Port</strong>folio</span>
+
+  <a style="padding-left: 10px" (click)="goHome()"
+    ><strong>Port</strong>folio</a
+  >
 </div>

@@ -15,26 +15,12 @@ export class DetailAlbumService {
     const url =
       `${environment.baseRestApi}/photos/?_expand=album&&albumId=` + idAlbum;
 
-    return this.httpClient.get<PhotoModel[]>(url).pipe(
-      map((res) => {
-        return res;
-      }),
-      catchError((err) => {
-        return throwError(err);
-      })
-    );
+    return this.httpClient.get<PhotoModel[]>(url);
   }
 
   getAlbumById(idAlbum: string): Observable<AlbumModel> {
     const url = `${environment.baseRestApi}/albums/${idAlbum}?_expand=user`;
 
-    return this.httpClient.get<AlbumModel>(url).pipe(
-      map((res) => {
-        return res;
-      }),
-      catchError((err) => {
-        return throwError(err);
-      })
-    );
+    return this.httpClient.get<AlbumModel>(url);
   }
 }

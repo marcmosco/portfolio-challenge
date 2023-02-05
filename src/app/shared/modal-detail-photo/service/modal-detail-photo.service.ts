@@ -13,13 +13,6 @@ export class ModalDetailPhotoService {
   addComment(comment: CommentModel): Observable<CommentModel> {
     const url = `${environment.baseRestApi}/comments`;
 
-    return this.httpClient.post<CommentModel>(url, comment).pipe(
-      map((res) => {
-        return res;
-      }),
-      catchError((err) => {
-        return throwError(err);
-      })
-    );
+    return this.httpClient.post<CommentModel>(url, comment);
   }
 }

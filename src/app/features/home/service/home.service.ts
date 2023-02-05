@@ -13,13 +13,6 @@ export class HomeService {
   loadAllImages(): Observable<PhotoModel[]> {
     const url = `${environment.baseRestApi}/photos?_expand=album`;
 
-    return this.httpClient.get<PhotoModel[]>(url).pipe(
-      map((res) => {
-        return res;
-      }),
-      catchError((err) => {
-        return throwError(err);
-      })
-    );
+    return this.httpClient.get<PhotoModel[]>(url);
   }
 }
