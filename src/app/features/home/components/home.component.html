@@ -1,8 +1,18 @@
-<div class="row">
-  <div class="column" *ngFor="let photo of listPhotos">
+<div class="flexContainer">
+  <div *ngFor="let photo of listPhotos">
     <app-photo-card
       [photo]="photo"
       [userId]="photo.album.userId"
     ></app-photo-card>
   </div>
 </div>
+
+<!--VERSIONE NO FLEXBOX-->
+<!--<div class="row">
+  <div class="column" *ngFor="let photo of listPhotos">
+    <app-photo-card
+      [photo]="photo"
+      [userId]="photo.album.userId"
+    ></app-photo-card>
+  </div>
+</div>-->

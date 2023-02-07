@@ -14,10 +14,11 @@ import { switchMap } from 'rxjs';
 })
 export class PhotoCardComponent implements OnInit {
   faArrow = faArrowRight;
-  @Input('photo') photo: PhotoModel;
-  @Input('userId') userId: number;
-
   user: UserModel;
+
+  @Input('photo') photo: PhotoModel;
+
+  @Input('userId') userId: number;
 
   @ViewChild('modal') modal: ModalDetailPhotoComponent;
 

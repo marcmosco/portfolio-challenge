@@ -18,6 +18,13 @@ body.modal-open {
   clear: both;
 }
 
+.flexContainer{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  padding: 1rem;
+}
+
 @media screen and (max-width: 600px) {
   .column {
     width: 100%;
