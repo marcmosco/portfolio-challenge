@@ -55,7 +55,7 @@ img {
 }
 
 .modal-column {
-  width: 50%;
+  width: 100%;
   padding:10px 35px 0 35px;
 }
 
@@ -99,25 +99,13 @@ textarea {
   margin-top: 10px;
 }
 
-.save-button{
-  margin-right: 20px;
-  margin-top: 20px;
-  background-color: dodgerblue;
-  color: white;
-  padding: 10px 25px;
-  border: none;
-  border-radius: 20px;
-  font-size: 15px;
-}
+
 
 .section-comment{
   padding-left: 35px;
 }
 
-button[disabled] {
-  opacity: 0.6;
-  cursor: not-allowed;
-}
+
 hr.solid {
   border-top: 3px solid #bbb;
 }

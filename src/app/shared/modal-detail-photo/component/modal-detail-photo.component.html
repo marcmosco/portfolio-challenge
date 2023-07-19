@@ -1,3 +1,4 @@
+<app-content-loader [displayProgressSpinner]="isLoadingData"></app-content-loader>
 <div #myModal class="modal">
   <!-- Modal content -->
   <div class="modal-content">
@@ -5,15 +6,10 @@
     <img [src]="photo.url" alt="Avatar" />
     <div class="row">
       <div class="modal-column">
-        <p style="margin: 0px">{{ photo.album.title }}</p>
-        <h3>
-          <b>{{ photo.title }}</b>
-        </h3>
-      </div>
-      <div class="modal-column">
-        <div class="row" style="justify-content: flex-end">
-          <img [src]="user?.avatar" class="avatar" />
-          <p style="padding-left: 5px">{{ user?.name }}</p>
+        <div class="row" style="align-items: end; flex-direction: column">
+
+          <p style="padding-left: 5px"><strong>Title photo:</strong> {{ photo?.title }}</p>
+
         </div>
         <div class="row" style="justify-content: flex-end">
           <fa-icon [icon]="faComment"></fa-icon>{{ comments.length }}
@@ -23,13 +19,22 @@
     </div>
     <hr class="solid" />
     <form [formGroup]="modalForm">
-      <span style="padding-left: 35px; padding-bottom: 10px">Comment</span>
+      <div class="modal-column">
+        <h3 style="margin: 0px">
+          <b>{{ post.title }}</b>
+        </h3>
+        <p >{{ post.body }}</p>
+
+      </div>
+      <span style="padding-right: 35px; padding-bottom: 10px; float:right">Please insert a comment here</span>
       <div class="comment-area">
         <textarea formControlName="comment" maxlength="140"></textarea>
         {{ modalForm.controls["comment"].value.length }}/140
         <div style="display: flex; justify-content: right">
           <button
-            class="save-button"
+            mat-raised-button
+            color="primary"
+
             [disabled]="modalForm.invalid"
             (click)="saveComment()"
           >
@@ -39,7 +44,7 @@
       </div>
     </form>
 
-    <div class="section-comment">
+    <div class="section-comment" *ngIf="comments.length>0">
       <p>Last comments</p>
       <div class="comments">
         <div class="comment" *ngFor="let comment of comments">

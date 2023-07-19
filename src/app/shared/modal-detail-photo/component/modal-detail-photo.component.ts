@@ -14,6 +14,7 @@ import { ModalDetailPhotoService } from '../service/modal-detail-photo.service';
 import { PhotoCardService } from '../../photo-card/service/photo-card.service';
 import { switchMap } from 'rxjs';
 import { faComment } from '@fortawesome/free-regular-svg-icons';
+import { PostModel } from '../../model/post.model';
 
 @Component({
   selector: 'app-modal-detail-photo',
@@ -22,13 +23,15 @@ import { faComment } from '@fortawesome/free-regular-svg-icons';
 })
 export class ModalDetailPhotoComponent implements OnInit {
   @Input('photo') photo: PhotoModel;
-  @Input('user') user: UserModel | null;
+  @Input('user') user: UserModel;
   @Input('comments') comments: CommentModel[] = [];
+  @Input('post') post: PostModel;
 
   @Output() closeEvent: EventEmitter<boolean> = new EventEmitter<boolean>();
 
   faComment = faComment;
   modalForm: FormGroup;
+  isLoadingData: boolean;
 
   constructor(
     private renderer: Renderer2,
@@ -43,6 +46,13 @@ export class ModalDetailPhotoComponent implements OnInit {
 
   ngOnInit(): void {
     this.renderer.addClass(document.body, 'modal-open');
+    this.isLoadingData = true;
+    this.modalDetailService
+      .getAllCommentsFromPostId(this.post.id)
+      .subscribe((res) => {
+        this.comments = res;
+        this.isLoadingData = false;
+      });
   }
 
   closeModal() {
@@ -52,30 +62,23 @@ export class ModalDetailPhotoComponent implements OnInit {
   }
 
   saveComment() {
-    let today = new Date();
-
     const comment: CommentModel = {
-      photoId: this.photo.id,
-      userId: 10,
+      name: this.user.name,
+      email: this.user.email,
       body: this.modalForm.get('comment')!.value,
-      creationDate:
-        today.getDate() +
-        '/' +
-        (today.getMonth() + 1) +
-        '/' +
-        today.getFullYear(),
     };
-
+    this.isLoadingData = true;
     this.modalDetailService
-      .addComment(comment)
+      .addComment(comment, this.post.id)
       .pipe(
         switchMap((res) => {
-          return this.photoCardService.getCommentsByPhotoId(this.photo.id);
+          return this.modalDetailService.getAllCommentsFromPostId(this.post.id);
         })
       )
       .subscribe((res) => {
         this.comments = res;
         this.modalForm.reset({ comment: '' });
+        this.isLoadingData = false;
       });
   }
 }

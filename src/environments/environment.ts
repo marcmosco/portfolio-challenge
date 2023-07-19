@@ -5,6 +5,7 @@
 export const environment = {
   production: false,
   baseRestApi: 'http://localhost:3000',
+  goRestApi: 'https://gorest.co.in/public/v2',
 };
 
 /*

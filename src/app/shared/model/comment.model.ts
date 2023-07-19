@@ -1,10 +1,7 @@
-import { UserModel } from './user.model';
-
 export interface CommentModel {
-  photoId: number;
   id?: number;
-  userId: number;
+  post_id?: number;
   body: string;
-  creationDate: string;
-  user?: UserModel;
+  name: string;
+  email: string;
 }

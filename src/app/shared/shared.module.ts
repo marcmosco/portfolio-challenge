@@ -11,6 +11,10 @@ import { ModalDetailPhotoComponent } from './modal-detail-photo/component/modal-
 import { CommentComponent } from './comment/comment.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { EllipsisModule } from 'ngx-ellipsis';
+import { ContentLoaderComponent } from './content-loader/content-loader.component';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { OverlayModule } from '@angular/cdk/overlay';
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
   declarations: [
@@ -18,7 +22,9 @@ import { EllipsisModule } from 'ngx-ellipsis';
     SideNavComponent,
     PhotoCardComponent,
     ModalDetailPhotoComponent,
+
     CommentComponent,
+    ContentLoaderComponent,
   ],
   imports: [
     CommonModule,
@@ -26,6 +32,9 @@ import { EllipsisModule } from 'ngx-ellipsis';
     FontAwesomeModule,
     ReactiveFormsModule,
     EllipsisModule,
+    MatProgressSpinnerModule,
+    OverlayModule,
+    MatButtonModule,
   ],
 
   exports: [
@@ -38,6 +47,8 @@ import { EllipsisModule } from 'ngx-ellipsis';
     CommentComponent,
     ReactiveFormsModule,
     EllipsisModule,
+    ContentLoaderComponent,
+    OverlayModule,
   ],
 })
 export class SharedModule {}

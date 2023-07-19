@@ -6,6 +6,8 @@ import { UserModel } from '../../model/user.model';
 import { PhotoCardService } from '../service/photo-card.service';
 import { CommentModel } from '../../model/comment.model';
 import { switchMap } from 'rxjs';
+import { PostModel } from '../../model/post.model';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-photo-card',
@@ -15,6 +17,7 @@ import { switchMap } from 'rxjs';
 export class PhotoCardComponent implements OnInit {
   faArrow = faArrowRight;
   user: UserModel;
+  post: PostModel;
 
   @Input('photo') photo: PhotoModel;
 
@@ -30,7 +33,40 @@ export class PhotoCardComponent implements OnInit {
   ngOnInit(): void {}
 
   openDialog(idPhoto: number) {
-    this.photoCardService
+    if (this.photo.postId) {
+      this.photoCardService
+        .getPostFromPostId(this.photo.postId)
+        .pipe(
+          switchMap((res) => {
+            this.post = res;
+            return this.photoCardService.getUserFromUserId(this.post.user_id);
+          }),
+          map((res) => {
+            this.user = res;
+            this.showModal = true;
+          })
+        )
+        .subscribe();
+    } else {
+      this.photoCardService
+        .createPostFromPhoto(this.photo)
+        .pipe(
+          switchMap((res) => {
+            this.post = res;
+            return this.photoCardService.updatePhoto(this.photo, this.post);
+          }),
+          switchMap((res) => {
+            this.photo = res;
+            return this.photoCardService.getUserFromUserId(this.post.user_id);
+          }),
+          map((res) => {
+            this.user = res;
+            this.showModal = true;
+          })
+        )
+        .subscribe();
+    }
+    /*this.photoCardService
       .getCommentsByPhotoId(idPhoto)
       .pipe(
         switchMap((res) => {
@@ -41,7 +77,7 @@ export class PhotoCardComponent implements OnInit {
       .subscribe((res) => {
         this.user = res;
         this.showModal = true;
-      });
+      });*/
   }
 
   closeModal() {

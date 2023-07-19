@@ -10,9 +10,9 @@
   </div>
 
   <div class="text-container">
-    <p>{{ photo.album.title }}</p>
+    <h2>Album: {{ photo.album.title }}</h2>
     <h4>
-      <b>{{ photo.title }}</b>
+      Photo: {{ photo.title }}
     </h4>
   </div>
 </div>
@@ -21,7 +21,7 @@
   *ngIf="showModal"
   #modal
   [photo]="photo"
-  [comments]="allComments"
+  [post]="post"
   [user]="user"
   (closeEvent)="closeModal()"
 ></app-modal-detail-photo>

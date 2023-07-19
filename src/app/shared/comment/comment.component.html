@@ -1,9 +1,9 @@
 <div class="comment-image">
-  <img [src]="comment.user?.avatar" />
+ <img [src]="'assets/img/avatar-person.svg'" />
 </div>
 <div class="comment-body">
   <div class="comment-info">
-    <strong>{{ comment.user?.name }}</strong>
+   <strong>{{ comment?.name }}</strong>
   </div>
   <div class="comment-text">
     <p
@@ -18,5 +18,5 @@
       >Read more</span
     >
   </div>
-  <div class="date-field">{{ comment.creationDate }}</div>
+  <!--<div class="date-field">{{ comment.creationDate }}</div>-->
 </div>

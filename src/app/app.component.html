@@ -1,5 +1,12 @@
-<app-toolbar (toggleEvent)="openNav()"></app-toolbar>
+<!--
+<app-toolbar (toggleEvent)="openNav()" *ngIf="!!(userService.getInfoObs() | async)?.id"></app-toolbar >
 
-<app-side-nav #nav [listAlbums]="listAlbums"></app-side-nav>
+<app-side-nav #nav [listAlbums]="listAlbums" *ngIf="!!(userService.getInfoObs()| async)?.id"></app-side-nav>
+
+-->
+<app-toolbar (toggleEvent)="openNav()" ></app-toolbar >
+
+<app-side-nav #nav [listAlbums]="listAlbums" ></app-side-nav>
+
 
 <router-outlet></router-outlet>

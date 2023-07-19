@@ -4,19 +4,25 @@ import { environment } from '../../../../environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { CommentModel } from '../../model/comment.model';
 import { UserModel } from '../../model/user.model';
+import { PostModel } from '../../model/post.model';
+import { PhotoModel } from '../../model/photo.model';
+import { UserService } from '../../user.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class PhotoCardService {
-  constructor(private httpClient: HttpClient) {}
+  constructor(
+    private httpClient: HttpClient,
+    private userService: UserService
+  ) {}
 
   getCommentsByPhotoId(idPhoto: number): Observable<CommentModel[]> {
     const url = `${environment.baseRestApi}/comments?photoId=${idPhoto}&&_expand=user`;
 
     return this.httpClient.get<CommentModel[]>(url).pipe(
       map((res) => {
-        return this.sortResDate(res);
+        return res;
       }),
       catchError((err) => {
         return throwError(err);
@@ -30,21 +36,30 @@ export class PhotoCardService {
     return this.httpClient.get<UserModel>(url);
   }
 
-  //metodo custom per il sort
-  private sortResDate(res: CommentModel[]): CommentModel[] {
-    return res.sort((a, b) => {
-      return b.creationDate === a.creationDate
-        ? b.id! - a.id!
-        : new Date(
-            +b.creationDate.split('/')[2],
-            +b.creationDate.split('/')[1],
-            +b.creationDate.split('/')[0]
-          ).getTime() -
-            new Date(
-              +a.creationDate.split('/')[2],
-              +a.creationDate.split('/')[1],
-              +a.creationDate.split('/')[0]
-            ).getTime();
-    });
+  getPostFromPostId(id: number): Observable<PostModel> {
+    const url = `${environment.goRestApi}/posts/${id}`;
+
+    return this.httpClient.get<PostModel>(url);
+  }
+
+  getUserFromUserId(id: number): Observable<UserModel> {
+    const url = `${environment.goRestApi}/users/${id}`;
+
+    return this.httpClient.get<UserModel>(url);
+  }
+
+  updatePhoto(photo: PhotoModel, post: PostModel): Observable<PhotoModel> {
+    const url = `${environment.baseRestApi}/photos/${photo.id}`;
+    photo.postId = post.id;
+    return this.httpClient.put<PhotoModel>(url, photo);
+  }
+
+  createPostFromPhoto(photo: PhotoModel): Observable<PostModel> {
+    const url = `${environment.goRestApi}/users/${3774397}/posts`;
+    const post = {
+      title: `Do you like the picture ${photo.id}?`,
+      body: 'Tell us your opinion!',
+    };
+    return this.httpClient.post<PostModel>(url, post);
   }
 }
