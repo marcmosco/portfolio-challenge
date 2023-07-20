@@ -1,47 +1,47 @@
 {
   "albums": [
     {
-      "userId": 1,
+      "authorId": 1,
       "id": 1,
       "title": "Experimental"
     },
     {
-      "userId": 2,
+      "authorId": 2,
       "id": 2,
       "title": "3D Renders"
     },
     {
-      "userId": 3,
+      "authorId": 3,
       "id": 3,
       "title": "Nature"
     },
     {
-      "userId": 4,
+      "authorId": 4,
       "id": 4,
       "title": "Food"
     },
     {
-      "userId": 5,
+      "authorId": 5,
       "id": 5,
       "title": "People"
     },
     {
-      "userId": 6,
+      "authorId": 6,
       "id": 6,
       "title": "Film"
     },
     {
-      "userId": 7,
+      "authorId": 7,
       "id": 7,
       "title": "Drink"
     },
     {
-      "userId": 8,
+      "authorId": 8,
       "id": 8,
       "title": "Interiors"
     },
     {
-      "userId": 9,
+      "authorId": 9,
       "id": 9,
       "title": "Architecture"
     }
@@ -52,35 +52,41 @@
       "id": 1,
       "title": "accusamus beatae ad facilis cum similique qui sunt",
       "url": "https://dummyimage.com/762x457/92c952",
-      "thumbnailUrl": "https://dummyimage.com/276x102/92c952"
+      "thumbnailUrl": "https://dummyimage.com/276x102/92c952",
+    
     },
     {
       "albumId": 1,
       "id": 2,
       "title": "reprehenderit est deserunt velit ipsam",
       "url": "https://dummyimage.com/762x457/771796",
-      "thumbnailUrl": "https://dummyimage.com/276x102/771796"
+      "thumbnailUrl": "https://dummyimage.com/276x102/771796",
+      
     },
     {
       "albumId": 1,
       "id": 3,
       "title": "officia porro iure quia iusto qui ipsa ut modi",
       "url": "https://dummyimage.com/762x457/24f355",
-      "thumbnailUrl": "https://dummyimage.com/276x102/24f355"
+      "thumbnailUrl": "https://dummyimage.com/276x102/24f355",
+      
     },
     {
       "albumId": 1,
       "id": 4,
       "title": "culpa odio esse rerum omnis laboriosam voluptate repudiandae",
       "url": "https://dummyimage.com/762x457/d32776",
-      "thumbnailUrl": "https://dummyimage.com/276x102/d32776"
+      "thumbnailUrl": "https://dummyimage.com/276x102/d32776",
+     
+    
     },
     {
       "albumId": 1,
       "id": 5,
       "title": "natus nisi omnis corporis facere molestiae rerum in",
       "url": "https://dummyimage.com/762x457/f66b97",
-      "thumbnailUrl": "https://dummyimage.com/276x102/f66b97"
+      "thumbnailUrl": "https://dummyimage.com/276x102/f66b97",
+   
     },
     {
       "albumId": 1,
@@ -101,21 +107,24 @@
       "id": 8,
       "title": "aut porro officiis laborum odit ea laudantium corporis",
       "url": "https://dummyimage.com/762x457/54176f",
-      "thumbnailUrl": "https://dummyimage.com/276x102/54176f"
+      "thumbnailUrl": "https://dummyimage.com/276x102/54176f",
+      
     },
     {
       "albumId": 1,
       "id": 9,
       "title": "qui eius qui autem sed",
       "url": "https://dummyimage.com/762x457/51aa97",
-      "thumbnailUrl": "https://dummyimage.com/276x102/51aa97"
+      "thumbnailUrl": "https://dummyimage.com/276x102/51aa97",
+   
     },
     {
       "albumId": 1,
       "id": 10,
       "title": "beatae et provident et ut vel",
       "url": "https://dummyimage.com/762x457/810b14",
-      "thumbnailUrl": "https://dummyimage.com/276x102/810b14"
+      "thumbnailUrl": "https://dummyimage.com/276x102/810b14",
+      
     },
     {
       "albumId": 1,
@@ -346,7 +355,8 @@
       "id": 43,
       "title": "eius hic autem ad beatae voluptas",
       "url": "https://dummyimage.com/762x457/6ad437",
-      "thumbnailUrl": "https://dummyimage.com/276x102/6ad437"
+      "thumbnailUrl": "https://dummyimage.com/276x102/6ad437",
+     
     },
     {
       "albumId": 1,
@@ -430,7 +440,13 @@
       "id": 55,
       "title": "voluptatem consequatur totam qui aut iure est vel",
       "url": "https://dummyimage.com/762x457/5e04a4",
-      "thumbnailUrl": "https://dummyimage.com/276x102/5e04a4"
+      "thumbnailUrl": "https://dummyimage.com/276x102/5e04a4",
+      "album": {
+        "authorId": 2,
+        "id": 2,
+        "title": "3D Renders"
+      },
+      "postId": 52456
     },
     {
       "albumId": 2,
@@ -759,7 +775,13 @@
       "id": 102,
       "title": "eaque iste corporis tempora vero distinctio consequuntur nisi nesciunt",
       "url": "https://dummyimage.com/762x457/a393af",
-      "thumbnailUrl": "https://dummyimage.com/276x102/a393af"
+      "thumbnailUrl": "https://dummyimage.com/276x102/a393af",
+      "album": {
+        "userId": 3,
+        "id": 3,
+        "title": "Nature"
+      },
+      "postId": 52441
     },
     {
       "albumId": 3,
@@ -16582,7 +16604,7 @@
       "id": 2361
     }
   ],
-  "users": [
+  "authors": [
     {
       "id": 1,
       "avatar": "https://dummyimage.com/276x102/cccccc",

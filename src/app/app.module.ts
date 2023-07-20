@@ -8,6 +8,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { Authorization } from './shared/authorization';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatListModule } from '@angular/material/list';
 
 @NgModule({
   declarations: [AppComponent],
@@ -18,6 +20,8 @@ import { Authorization } from './shared/authorization';
     BrowserAnimationsModule,
     HttpClientModule,
     FontAwesomeModule,
+    MatSidenavModule,
+    MatListModule,
   ],
   providers: [
     {

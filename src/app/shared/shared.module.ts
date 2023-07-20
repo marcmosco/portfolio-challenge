@@ -1,9 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { ToolbarComponent } from './template/toolbar/toolbar.component';
-
-import { SideNavComponent } from './template/side-nav/component/side-nav.component';
 import { RouterLinkWithHref } from '@angular/router';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { PhotoCardComponent } from './photo-card/component/photo-card.component';
@@ -15,14 +12,20 @@ import { ContentLoaderComponent } from './content-loader/content-loader.componen
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { OverlayModule } from '@angular/cdk/overlay';
 import { MatButtonModule } from '@angular/material/button';
+import { HeaderComponent } from './template/header/header.component';
+import { MatIconModule } from '@angular/material/icon';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatBadgeModule } from '@angular/material/badge';
+import { MatCardModule } from '@angular/material/card';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
-    ToolbarComponent,
-    SideNavComponent,
     PhotoCardComponent,
     ModalDetailPhotoComponent,
-
+    HeaderComponent,
     CommentComponent,
     ContentLoaderComponent,
   ],
@@ -35,12 +38,18 @@ import { MatButtonModule } from '@angular/material/button';
     MatProgressSpinnerModule,
     OverlayModule,
     MatButtonModule,
+    MatIconModule,
+    MatToolbarModule,
+    MatMenuModule,
+    MatSidenavModule,
+    MatBadgeModule,
+    MatCardModule,
+    MatDialogModule,
+    MatIconModule,
   ],
 
   exports: [
-    ToolbarComponent,
     CommonModule,
-    SideNavComponent,
     RouterLinkWithHref,
     FontAwesomeModule,
     PhotoCardComponent,
@@ -48,6 +57,8 @@ import { MatButtonModule } from '@angular/material/button';
     ReactiveFormsModule,
     EllipsisModule,
     ContentLoaderComponent,
+    HeaderComponent,
+
     OverlayModule,
   ],
 })

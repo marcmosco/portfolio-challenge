@@ -16,23 +16,29 @@ import { map } from 'rxjs/operators';
 })
 export class PhotoCardComponent implements OnInit {
   faArrow = faArrowRight;
+  author: UserModel;
   user: UserModel;
   post: PostModel;
-
+  liked: boolean;
   @Input('photo') photo: PhotoModel;
 
-  @Input('userId') userId: number;
+  @Input('authorId') authorId: number;
 
   @ViewChild('modal') modal: ModalDetailPhotoComponent;
-
+  isLoadingData: boolean;
   allComments: CommentModel[] = [];
   showModal: boolean = false;
 
   constructor(private photoCardService: PhotoCardService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.photoCardService.getAuthorById(this.authorId).subscribe((res) => {
+      this.author = res;
+    });
+  }
 
   openDialog(idPhoto: number) {
+    this.isLoadingData = true;
     if (this.photo.postId) {
       this.photoCardService
         .getPostFromPostId(this.photo.postId)
@@ -44,6 +50,7 @@ export class PhotoCardComponent implements OnInit {
           map((res) => {
             this.user = res;
             this.showModal = true;
+            this.isLoadingData = false;
           })
         )
         .subscribe();
@@ -62,24 +69,16 @@ export class PhotoCardComponent implements OnInit {
           map((res) => {
             this.user = res;
             this.showModal = true;
+            this.isLoadingData = false;
           })
         )
         .subscribe();
     }
-    /*this.photoCardService
-      .getCommentsByPhotoId(idPhoto)
-      .pipe(
-        switchMap((res) => {
-          this.allComments = res;
-          return this.photoCardService.getUserById(this.userId);
-        })
-      )
-      .subscribe((res) => {
-        this.user = res;
-        this.showModal = true;
-      });*/
   }
 
+  like() {
+    this.liked = !this.liked;
+  }
   closeModal() {
     this.showModal = false;
   }

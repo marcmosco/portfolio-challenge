@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AuthGuardService } from './shared/service/auth-gaurd.service';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -9,15 +10,16 @@ const routes: Routes = [
       import('./features/login-form/login-form.module').then(
         (m) => m.LoginFormModule
       ),
-
   },
+
   {
-    path: 'home',
+    path: 'detail-album',
     loadChildren: () =>
-      import('./features/home/home.module').then((m) => m.HomeModule),
+      import('./features/detail-album/detail-album.module').then(
+        (m) => m.DetailAlbumModule
+      ),
+    canActivate: [AuthGuardService],
   },
-
-  { path: 'detail-album', loadChildren: () => import('./features/detail-album/detail-album.module').then(m => m.DetailAlbumModule) },
 ];
 
 @NgModule({

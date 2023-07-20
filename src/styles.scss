@@ -23,6 +23,7 @@ body.modal-open {
   flex-wrap: wrap;
   gap: 2rem;
   padding: 1rem;
+
 }
 
 @media screen and (max-width: 600px) {
@@ -33,5 +34,15 @@ body.modal-open {
   }
 }
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.mat-sidenav{
+  background-color: #EFF4FB;
+  width: 250px;
+}
+/*.container-top {
+  top: 64px !important;
+}*/
+
+.liked{
+  border: 2px solid red;
+}

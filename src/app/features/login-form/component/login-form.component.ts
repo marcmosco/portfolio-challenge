@@ -1,9 +1,14 @@
-import {Component, OnInit} from '@angular/core';
-import {FormBuilder, FormControl, FormGroup, Validators,} from '@angular/forms';
-import {Router} from '@angular/router';
-import {MatSnackBar} from '@angular/material/snack-bar';
-import {AuthService} from "../auth.service";
-import {UserService} from "../../../shared/user.service";
+import { Component, OnInit } from '@angular/core';
+import {
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
+import { Router } from '@angular/router';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { AuthService } from '../auth.service';
+import { UserService } from '../../../shared/service/user.service';
 
 @Component({
   selector: 'app-login-form',
@@ -16,9 +21,9 @@ export class LoginFormComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private auth:AuthService,
-    private userService:UserService,
-   private router: Router,
+    private auth: AuthService,
+    private userService: UserService,
+    private router: Router,
     private _snackBar: MatSnackBar
   ) {}
 
@@ -35,20 +40,16 @@ export class LoginFormComponent implements OnInit {
   }
 
   onLogin() {
-   this.auth
-      .loginUser(
-        this.loginForm.value
-      )
-      .subscribe(
-        (data) => {
-          this.userService.setInfoObs(data);
-          this.router.navigateByUrl('/home');
-        },
-        (err) => {
-          const message1: string = err.error.message;
-          this.openSnackBar('' + message1, 'close');
-        }
-      );
+    this.auth.loginUser(this.loginForm.value).subscribe(
+      (data) => {
+        this.userService.setInfoObs(data);
+        this.router.navigateByUrl('/detail-album/1');
+      },
+      (err) => {
+        const message1: string = err.error.message;
+        this.openSnackBar('' + message1, 'close');
+      }
+    );
   }
 
   openSnackBar(message: string, action: string) {

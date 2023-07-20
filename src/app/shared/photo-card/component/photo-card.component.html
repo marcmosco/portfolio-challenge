@@ -1,4 +1,4 @@
-<div class="card">
+<!--<div class="card">
   <div class="img-gradient">
     <img [src]="photo.thumbnailUrl" alt="Avatar" />
     <div class="overlay"></div>
@@ -15,7 +15,30 @@
       Photo: {{ photo.title }}
     </h4>
   </div>
-</div>
+</div>-->
+<app-content-loader [displayProgressSpinner]="isLoadingData"></app-content-loader>
+
+<mat-card class="example-card" [ngClass]="{'liked':liked}">
+  <mat-card-header>
+    <div mat-card-avatar class="example-header-image"></div>
+    <mat-card-title>{{author?.name}}</mat-card-title>
+    <mat-card-subtitle>{{photo.album.title}}</mat-card-subtitle>
+  </mat-card-header>
+  <img mat-card-image [src]="photo.thumbnailUrl" alt="Photo of a Shiba Inu">
+  <mat-card-content>
+    <p style="height: 64px;">
+      {{ photo.title }}
+    </p>
+  </mat-card-content>
+  <mat-card-actions  align="end">
+    <button mat-icon-button color="warn" aria-label="Example icon button with a heart icon" (click)="like()">
+      <mat-icon *ngIf="!liked">favorite_border</mat-icon>
+      <mat-icon *ngIf="liked">favorite</mat-icon>
+    </button>
+
+    <button mat-button (click)="openDialog(photo.id)">COMMENT</button>
+  </mat-card-actions>
+</mat-card>
 
 <app-modal-detail-photo
   *ngIf="showModal"

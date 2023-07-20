@@ -6,7 +6,7 @@ import { CommentModel } from '../../model/comment.model';
 import { UserModel } from '../../model/user.model';
 import { PostModel } from '../../model/post.model';
 import { PhotoModel } from '../../model/photo.model';
-import { UserService } from '../../user.service';
+import { UserService } from '../../service/user.service';
 
 @Injectable({
   providedIn: 'root',
@@ -30,8 +30,8 @@ export class PhotoCardService {
     );
   }
 
-  getUserById(idUser: number): Observable<UserModel> {
-    const url = `${environment.baseRestApi}/users/${idUser}`;
+  getAuthorById(idAuthor: number): Observable<UserModel> {
+    const url = `${environment.baseRestApi}/authors/${idAuthor}`;
 
     return this.httpClient.get<UserModel>(url);
   }
