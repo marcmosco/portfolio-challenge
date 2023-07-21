@@ -66,26 +66,14 @@
       "id": 3,
       "title": "officia porro iure quia iusto qui ipsa ut modi",
       "url": "https://dummyimage.com/762x457/24f355",
-      "thumbnailUrl": "https://dummyimage.com/276x102/24f355",
-      "album": {
-        "authorId": 1,
-        "id": 1,
-        "title": "Experimental"
-      },
-      "postId": 52813
+      "thumbnailUrl": "https://dummyimage.com/276x102/24f355"
     },
     {
       "albumId": 1,
       "id": 4,
       "title": "culpa odio esse rerum omnis laboriosam voluptate repudiandae",
       "url": "https://dummyimage.com/762x457/d32776",
-      "thumbnailUrl": "https://dummyimage.com/276x102/d32776",
-      "album": {
-        "authorId": 1,
-        "id": 1,
-        "title": "Experimental"
-      },
-      "postId": 52741
+      "thumbnailUrl": "https://dummyimage.com/276x102/d32776"
     },
     {
       "albumId": 1,
@@ -120,13 +108,7 @@
       "id": 9,
       "title": "qui eius qui autem sed",
       "url": "https://dummyimage.com/762x457/51aa97",
-      "thumbnailUrl": "https://dummyimage.com/276x102/51aa97",
-      "album": {
-        "authorId": 1,
-        "id": 1,
-        "title": "Experimental"
-      },
-      "postId": 52744
+      "thumbnailUrl": "https://dummyimage.com/276x102/51aa97"
     },
     {
       "albumId": 1,
@@ -448,13 +430,7 @@
       "id": 55,
       "title": "voluptatem consequatur totam qui aut iure est vel",
       "url": "https://dummyimage.com/762x457/5e04a4",
-      "thumbnailUrl": "https://dummyimage.com/276x102/5e04a4",
-      "album": {
-        "authorId": 2,
-        "id": 2,
-        "title": "3D Renders"
-      },
-      "postId": 52456
+      "thumbnailUrl": "https://dummyimage.com/276x102/5e04a4"
     },
     {
       "albumId": 2,
@@ -783,13 +759,7 @@
       "id": 102,
       "title": "eaque iste corporis tempora vero distinctio consequuntur nisi nesciunt",
       "url": "https://dummyimage.com/762x457/a393af",
-      "thumbnailUrl": "https://dummyimage.com/276x102/a393af",
-      "album": {
-        "userId": 3,
-        "id": 3,
-        "title": "Nature"
-      },
-      "postId": 52441
+      "thumbnailUrl": "https://dummyimage.com/276x102/a393af"
     },
     {
       "albumId": 3,
@@ -1846,13 +1816,7 @@
       "id": 253,
       "title": "dolor qui id",
       "url": "https://dummyimage.com/762x457/bfb73",
-      "thumbnailUrl": "https://dummyimage.com/276x102/bfb73",
-      "album": {
-        "authorId": 6,
-        "id": 6,
-        "title": "Film"
-      },
-      "postId": 52750
+      "thumbnailUrl": "https://dummyimage.com/276x102/bfb73"
     },
     {
       "albumId": 6,
