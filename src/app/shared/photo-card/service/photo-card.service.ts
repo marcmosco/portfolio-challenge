@@ -7,6 +7,7 @@ import { UserModel } from '../../model/user.model';
 import { PostModel } from '../../model/post.model';
 import { PhotoModel } from '../../model/photo.model';
 import { UserService } from '../../service/user.service';
+import { AuthorModel } from '../../model/author.model';
 
 @Injectable({
   providedIn: 'root',
@@ -30,10 +31,10 @@ export class PhotoCardService {
     );
   }
 
-  getAuthorById(idAuthor: number): Observable<UserModel> {
+  getAuthorById(idAuthor: number): Observable<AuthorModel> {
     const url = `${environment.baseRestApi}/authors/${idAuthor}`;
 
-    return this.httpClient.get<UserModel>(url);
+    return this.httpClient.get<AuthorModel>(url);
   }
 
   getPostFromPostId(id: number): Observable<PostModel> {
@@ -55,7 +56,8 @@ export class PhotoCardService {
   }
 
   createPostFromPhoto(photo: PhotoModel): Observable<PostModel> {
-    const url = `${environment.goRestApi}/users/${3774397}/posts`;
+    const loggedUser = this.userService.takeValue();
+    const url = `${environment.goRestApi}/users/${loggedUser.id}/posts`;
     const post = {
       title: `Do you like the picture ${photo.id}?`,
       body: 'Tell us your opinion!',

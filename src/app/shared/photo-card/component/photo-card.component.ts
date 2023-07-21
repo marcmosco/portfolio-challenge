@@ -43,12 +43,8 @@ export class PhotoCardComponent implements OnInit {
       this.photoCardService
         .getPostFromPostId(this.photo.postId)
         .pipe(
-          switchMap((res) => {
-            this.post = res;
-            return this.photoCardService.getUserFromUserId(this.post.user_id);
-          }),
           map((res) => {
-            this.user = res;
+            this.post = res;
             this.showModal = true;
             this.isLoadingData = false;
           })
@@ -62,12 +58,8 @@ export class PhotoCardComponent implements OnInit {
             this.post = res;
             return this.photoCardService.updatePhoto(this.photo, this.post);
           }),
-          switchMap((res) => {
-            this.photo = res;
-            return this.photoCardService.getUserFromUserId(this.post.user_id);
-          }),
           map((res) => {
-            this.user = res;
+            this.photo = res;
             this.showModal = true;
             this.isLoadingData = false;
           })

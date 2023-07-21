@@ -7,13 +7,12 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
 ## Api Server
-Run `ng run api` for a api server. Run command on another(new) terminal window
+Run `npm run api` for a api server. Run command on another(new) terminal window
 
 Resources
 - http://localhost:3000/albums
 - http://localhost:3000/photos
-- http://localhost:3000/comments
-- http://localhost:3000/users
+- http://localhost:3000/authors
 
 ## Code scaffolding
 

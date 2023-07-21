@@ -1,5 +1,4 @@
 import { AlbumModel } from './album.model';
-import { PostModel } from './post.model';
 
 export interface PhotoModel {
   userId: number;
@@ -8,6 +7,5 @@ export interface PhotoModel {
   title: string;
   url: string;
   thumbnailUrl: string;
-  post: PostModel;
   album: AlbumModel;
 }

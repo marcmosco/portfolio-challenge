@@ -10,7 +10,7 @@
   <img mat-card-image [src]="photo.thumbnailUrl" alt="Photo of a Shiba Inu">
 
   <mat-card-content>
-    <p style="height: 64px;">
+    <p style="height: 56px;">
       {{ photo.title }}
     </p>
   </mat-card-content>
@@ -21,7 +21,7 @@
       <mat-icon *ngIf="liked">favorite</mat-icon>
     </button>
 
-    <button mat-button (click)="openDialog()">COMMENT</button>
+    <button mat-icon-button (click)="openDialog()"><mat-icon >chat_bubble_outline</mat-icon></button>
   </mat-card-actions>
 </mat-card>
 
@@ -30,6 +30,5 @@
   #modal
   [photo]="photo"
   [post]="post"
-  [user]="user"
   (closeEvent)="closeModal()"
 ></app-modal-detail-photo>

@@ -1,3 +1,4 @@
+{{user |json}}
 <app-content-loader [displayProgressSpinner]="isLoadingData"></app-content-loader>
 <div #myModal class="modal">
   <!-- Modal content -->
@@ -12,7 +13,7 @@
 
         </div>
         <div class="row" style="justify-content: flex-end">
-          <fa-icon [icon]="faComment"></fa-icon>{{ comments.length }}
+          <fa-icon [icon]="faComment" style="padding-right: 5px;"></fa-icon>{{ comments.length }}
         </div>
       </div>
       <br />
@@ -26,7 +27,7 @@
         <p >{{ post.body }}</p>
 
       </div>
-      <span style="padding-right: 35px; padding-bottom: 10px; float:right">Please insert a comment here</span>
+      <span class="comment-text">Please insert a comment here</span>
       <div class="comment-area">
         <textarea matInput formControlName="comment" maxlength="140"></textarea>
         {{ modalForm.controls["comment"].value.length }}/140

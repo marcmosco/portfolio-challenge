@@ -11,10 +11,10 @@ import { UserModel } from '../../model/user.model';
 import { CommentModel } from '../../model/comment.model';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ModalDetailPhotoService } from '../service/modal-detail-photo.service';
-import { PhotoCardService } from '../../photo-card/service/photo-card.service';
 import { switchMap } from 'rxjs';
 import { faComment } from '@fortawesome/free-regular-svg-icons';
 import { PostModel } from '../../model/post.model';
+import { UserService } from '../../service/user.service';
 
 @Component({
   selector: 'app-modal-detail-photo',
@@ -23,7 +23,7 @@ import { PostModel } from '../../model/post.model';
 })
 export class ModalDetailPhotoComponent implements OnInit {
   @Input('photo') photo: PhotoModel;
-  @Input('user') user: UserModel;
+  user: UserModel;
   @Input('comments') comments: CommentModel[] = [];
   @Input('post') post: PostModel;
 
@@ -36,8 +36,10 @@ export class ModalDetailPhotoComponent implements OnInit {
   constructor(
     private renderer: Renderer2,
     private fb: FormBuilder,
-    private modalDetailService: ModalDetailPhotoService
+    private modalDetailService: ModalDetailPhotoService,
+    private userService: UserService
   ) {
+    this.user = this.userService.takeValue();
     this.modalForm = this.fb.group({
       comment: ['', Validators.required],
     });
