@@ -13,11 +13,13 @@ import { AlbumModel } from '../../../shared/model/album.model';
 export class DetailAlbumComponent implements OnInit {
   albumModel: AlbumModel;
   listPhotos: PhotoModel[] = [];
+  isLoadingData: boolean;
 
   constructor(
     private route: ActivatedRoute,
     private detailAlbumService: DetailAlbumService
   ) {
+    this.isLoadingData = true;
     this.route.paramMap
       .pipe(
         switchMap((res) => {
@@ -33,6 +35,7 @@ export class DetailAlbumComponent implements OnInit {
       )
       .subscribe((res) => {
         this.listPhotos = res;
+        this.isLoadingData = false;
       });
   }
 
