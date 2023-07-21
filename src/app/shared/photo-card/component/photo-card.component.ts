@@ -8,6 +8,7 @@ import { CommentModel } from '../../model/comment.model';
 import { switchMap } from 'rxjs';
 import { PostModel } from '../../model/post.model';
 import { map } from 'rxjs/operators';
+import { AuthorModel } from '../../model/author.model';
 
 @Component({
   selector: 'app-photo-card',
@@ -15,19 +16,18 @@ import { map } from 'rxjs/operators';
   styleUrls: ['./photo-card.component.scss'],
 })
 export class PhotoCardComponent implements OnInit {
-  faArrow = faArrowRight;
-  author: UserModel;
+  @Input('photo') photo: PhotoModel;
+  @Input('authorId') authorId: number;
+
+  author: AuthorModel;
   user: UserModel;
   post: PostModel;
   liked: boolean;
-  @Input('photo') photo: PhotoModel;
-
-  @Input('authorId') authorId: number;
-
-  @ViewChild('modal') modal: ModalDetailPhotoComponent;
   isLoadingData: boolean;
   allComments: CommentModel[] = [];
   showModal: boolean = false;
+
+  @ViewChild('modal') modal: ModalDetailPhotoComponent;
 
   constructor(private photoCardService: PhotoCardService) {}
 
@@ -37,7 +37,7 @@ export class PhotoCardComponent implements OnInit {
     });
   }
 
-  openDialog(idPhoto: number) {
+  openDialog() {
     this.isLoadingData = true;
     if (this.photo.postId) {
       this.photoCardService
@@ -79,6 +79,7 @@ export class PhotoCardComponent implements OnInit {
   like() {
     this.liked = !this.liked;
   }
+
   closeModal() {
     this.showModal = false;
   }

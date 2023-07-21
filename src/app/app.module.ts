@@ -7,9 +7,7 @@ import { SharedModule } from './shared/shared.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { Authorization } from './shared/authorization';
-import { MatSidenavModule } from '@angular/material/sidenav';
-import { MatListModule } from '@angular/material/list';
+import { Authorization } from './shared/interceptor/authorization';
 
 @NgModule({
   declarations: [AppComponent],
@@ -20,8 +18,6 @@ import { MatListModule } from '@angular/material/list';
     BrowserAnimationsModule,
     HttpClientModule,
     FontAwesomeModule,
-    MatSidenavModule,
-    MatListModule,
   ],
   providers: [
     {

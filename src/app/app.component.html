@@ -1,13 +1,7 @@
-<!--
-<app-toolbar (toggleEvent)="openNav()" *ngIf="!!(userService.getInfoObs() | async)?.id"></app-toolbar >
-
-<app-side-nav #nav [listAlbums]="listAlbums" *ngIf="!!(userService.getInfoObs()| async)?.id"></app-side-nav>
-
--->
-<!--<app-toolbar (toggleEvent)="openNav()" ></app-toolbar >-->
-
-<!--<app-side-nav #nav [listAlbums]="listAlbums" ></app-side-nav>-->
 <app-header [inputSideNav]="sideNav" *ngIf="!!(userService.getInfoObs()| async)?.id"></app-header>
+<!--
+<app-header [inputSideNav]="sideNav" ></app-header>
+-->
 
 <mat-sidenav-container class="container-top" [hasBackdrop]="true">
   <mat-sidenav #sideNav (click)="sideNav.toggle()" mode="over">
@@ -15,7 +9,6 @@
 
       <a
         mat-list-item
-
         routerLink="/detail-album/{{ album.id }}"
         *ngFor="let album of listAlbums"
       >{{ album.title }}</a

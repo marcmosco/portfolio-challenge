@@ -7,7 +7,7 @@ import {
 } from '@angular/forms';
 import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { AuthService } from '../auth.service';
+import { AuthService } from '../service/auth.service';
 import { UserService } from '../../../shared/service/user.service';
 
 @Component({
@@ -18,6 +18,7 @@ import { UserService } from '../../../shared/service/user.service';
 export class LoginFormComponent implements OnInit {
   loginForm: FormGroup;
   hide: boolean = true;
+  isLoadingData: boolean;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -40,14 +41,20 @@ export class LoginFormComponent implements OnInit {
   }
 
   onLogin() {
+    this.isLoadingData = true;
     this.auth.loginUser(this.loginForm.value).subscribe(
       (data) => {
         this.userService.setInfoObs(data);
+        this.isLoadingData = false;
         this.router.navigateByUrl('/detail-album/1');
       },
       (err) => {
-        const message1: string = err.error.message;
-        this.openSnackBar('' + message1, 'close');
+        this.isLoadingData = false;
+        for (let error of err.error) {
+          const message1: string = error.field + ' ' + error.message;
+          this.openSnackBar('' + message1, 'close');
+        }
+        this.loginForm.reset();
       }
     );
   }

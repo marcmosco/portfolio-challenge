@@ -1,3 +1,4 @@
+<app-content-loader [displayProgressSpinner]="isLoadingData"></app-content-loader>
 <h1 style="padding-left: 30px; padding-top: 5px">
   {{ albumModel?.title }}
 </h1>
@@ -6,19 +7,8 @@
   <div *ngFor="let photo of listPhotos">
     <app-photo-card
       [photo]="photo"
-      [userId]="photo.album.userId"
+      [authorId]="photo.album.authorId"
     ></app-photo-card>
   </div>
 </div>
 
-<!--VERSIONE NO FLEXBOX-->
-<!--
-<div class="row">
-  <div class="column" *ngFor="let photo of listPhotos">
-    <app-photo-card
-      [photo]="photo"
-      [userId]="albumModel.userId"
-    ></app-photo-card>
-  </div>
-</div>
--->

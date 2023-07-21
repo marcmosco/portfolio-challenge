@@ -11,7 +11,7 @@ import {
 import { ProgressSpinnerMode } from '@angular/material/progress-spinner';
 import { ThemePalette } from '@angular/material/core';
 import { OverlayConfig, OverlayRef } from '@angular/cdk/overlay';
-import { OverlayService } from './overlay.service';
+import { OverlayService } from '../service/overlay.service';
 
 @Component({
   selector: 'app-content-loader',

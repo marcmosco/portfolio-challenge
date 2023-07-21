@@ -36,8 +36,7 @@ export class ModalDetailPhotoComponent implements OnInit {
   constructor(
     private renderer: Renderer2,
     private fb: FormBuilder,
-    private modalDetailService: ModalDetailPhotoService,
-    private photoCardService: PhotoCardService
+    private modalDetailService: ModalDetailPhotoService
   ) {
     this.modalForm = this.fb.group({
       comment: ['', Validators.required],
@@ -46,7 +45,9 @@ export class ModalDetailPhotoComponent implements OnInit {
 
   ngOnInit(): void {
     this.renderer.addClass(document.body, 'modal-open');
+
     this.isLoadingData = true;
+
     this.modalDetailService
       .getAllCommentsFromPostId(this.post.id)
       .subscribe((res) => {

@@ -5,15 +5,8 @@
   <span>PortFolio</span>
   <span class="example-spacer"></span>
 
-<!--  <button
-    mat-icon-button
-    class="example-icon"
-    aria-label="Carrello"
-    [matBadge]="(carteService.getProducts() | async).length"
-    matBadgeColor="accent"
-    (click)="openCart()"
-    [disabled]="(carteService.getProducts() | async).length === 0"
-  >
-    <mat-icon>shopping_cart</mat-icon>
-  </button>-->
+  <div>
+    <span>Current logged user: {{(userService.getInfoObs()|async)?.name}}</span>
+
+  </div>
 </mat-toolbar>

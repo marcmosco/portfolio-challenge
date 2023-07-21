@@ -1,25 +1,16 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
 import { RouterLinkWithHref } from '@angular/router';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { PhotoCardComponent } from './photo-card/component/photo-card.component';
 import { ModalDetailPhotoComponent } from './modal-detail-photo/component/modal-detail-photo.component';
-import { CommentComponent } from './comment/comment.component';
+import { CommentComponent } from './comment/component/comment.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { EllipsisModule } from 'ngx-ellipsis';
-import { ContentLoaderComponent } from './content-loader/content-loader.component';
-import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { ContentLoaderComponent } from './content-loader/component/content-loader.component';
 import { OverlayModule } from '@angular/cdk/overlay';
-import { MatButtonModule } from '@angular/material/button';
 import { HeaderComponent } from './template/header/header.component';
-import { MatIconModule } from '@angular/material/icon';
-import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatMenuModule } from '@angular/material/menu';
-import { MatSidenavModule } from '@angular/material/sidenav';
-import { MatBadgeModule } from '@angular/material/badge';
-import { MatCardModule } from '@angular/material/card';
-import { MatDialogModule } from '@angular/material/dialog';
+import { MaterialModule } from './material.module';
 
 @NgModule({
   declarations: [
@@ -34,18 +25,8 @@ import { MatDialogModule } from '@angular/material/dialog';
     RouterLinkWithHref,
     FontAwesomeModule,
     ReactiveFormsModule,
-    EllipsisModule,
-    MatProgressSpinnerModule,
     OverlayModule,
-    MatButtonModule,
-    MatIconModule,
-    MatToolbarModule,
-    MatMenuModule,
-    MatSidenavModule,
-    MatBadgeModule,
-    MatCardModule,
-    MatDialogModule,
-    MatIconModule,
+    MaterialModule,
   ],
 
   exports: [
@@ -58,8 +39,8 @@ import { MatDialogModule } from '@angular/material/dialog';
     EllipsisModule,
     ContentLoaderComponent,
     HeaderComponent,
-
     OverlayModule,
+    MaterialModule,
   ],
 })
 export class SharedModule {}
