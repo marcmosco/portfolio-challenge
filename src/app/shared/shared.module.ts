@@ -6,7 +6,6 @@ import { PhotoCardComponent } from './photo-card/component/photo-card.component'
 import { ModalDetailPhotoComponent } from './modal-detail-photo/component/modal-detail-photo.component';
 import { CommentComponent } from './comment/component/comment.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { EllipsisModule } from 'ngx-ellipsis';
 import { ContentLoaderComponent } from './content-loader/component/content-loader.component';
 import { OverlayModule } from '@angular/cdk/overlay';
 import { HeaderComponent } from './template/header/header.component';
@@ -36,7 +35,6 @@ import { MaterialModule } from './material.module';
     PhotoCardComponent,
     CommentComponent,
     ReactiveFormsModule,
-    EllipsisModule,
     ContentLoaderComponent,
     HeaderComponent,
     OverlayModule,
