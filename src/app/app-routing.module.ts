@@ -18,9 +18,7 @@ const routes: Routes = [
       import('./features/detail-album/detail-album.module').then(
         (m) => m.DetailAlbumModule
       ),
-    /*
     canActivate: [AuthGuardService],
-*/
   },
 ];
 

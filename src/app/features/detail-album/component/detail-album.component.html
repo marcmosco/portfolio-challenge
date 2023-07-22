@@ -1,13 +1,14 @@
 <app-content-loader [displayProgressSpinner]="isLoadingData"></app-content-loader>
-<h1 class="album-title">
+<div class="album-title">
+<h1 >
   Album {{ albumModel?.title }}
 </h1>
-
+</div>
 <div class="flexContainer">
   <div *ngFor="let photo of listPhotos">
     <app-photo-card
       [photo]="photo"
-      [authorId]="photo.album.authorId"
+      [album]="albumModel"
     ></app-photo-card>
   </div>
 </div>

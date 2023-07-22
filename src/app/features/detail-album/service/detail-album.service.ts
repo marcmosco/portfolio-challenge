@@ -12,14 +12,13 @@ export class DetailAlbumService {
   constructor(private httpClient: HttpClient) {}
 
   getPhotosFromAlbumId(idAlbum: number | null): Observable<PhotoModel[]> {
-    const url =
-      `${environment.baseRestApi}/photos/?_expand=album&&albumId=` + idAlbum;
+    const url = `${environment.baseRestApi}/photos/?albumId=` + idAlbum;
 
     return this.httpClient.get<PhotoModel[]>(url);
   }
 
   getAlbumById(idAlbum: string): Observable<AlbumModel> {
-    const url = `${environment.baseRestApi}/albums/${idAlbum}?_expand=user`;
+    const url = `${environment.baseRestApi}/albums/${idAlbum}?_expand=author`;
 
     return this.httpClient.get<AlbumModel>(url);
   }

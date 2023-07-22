@@ -9,6 +9,7 @@ import { switchMap } from 'rxjs';
 import { PostModel } from '../../model/post.model';
 import { map } from 'rxjs/operators';
 import { AuthorModel } from '../../model/author.model';
+import { AlbumModel } from '../../model/album.model';
 
 @Component({
   selector: 'app-photo-card',
@@ -17,7 +18,7 @@ import { AuthorModel } from '../../model/author.model';
 })
 export class PhotoCardComponent implements OnInit {
   @Input('photo') photo: PhotoModel;
-  @Input('authorId') authorId: number;
+  @Input('album') album: AlbumModel;
 
   author: AuthorModel;
   user: UserModel;
@@ -32,9 +33,7 @@ export class PhotoCardComponent implements OnInit {
   constructor(private photoCardService: PhotoCardService) {}
 
   ngOnInit(): void {
-    this.photoCardService.getAuthorById(this.authorId).subscribe((res) => {
-      this.author = res;
-    });
+    this.author = this.album.author;
   }
 
   openDialog() {
